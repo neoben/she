@@ -1,0 +1,9 @@
+Simulation with Hysteresis Handoff Algorithm - NO Forecasting
+
+EWMA parameters:
+	- alpha: 	0.015626
+
+Hysteresis parameters:
+	- beta: 	25
+	- gamma_g: 	6
+	- gamma_b:	3

@@ -1,0 +1,18 @@
+#! /bin/sh
+
+COMMAND=./bin/shs_d_choose
+
+# AP Parameters
+CURR_AP_ID=AP0			# ID of the current AP
+NEXT_AP_ID=AP1			# ID of the next AP
+CURR_AP_DATA=./data/ap0.dat	# Path of the current AP file
+NEXT_AP_DATA=./data/ap1.dat	# Path of the next AP file
+
+# DEWMA Parameters
+ALPHA=0.01
+GAMMA=0.01
+
+# Forecasting Window Parameter
+WINDOW=39
+
+$COMMAND $CURR_AP_ID $NEXT_AP_ID $CURR_AP_DATA $NEXT_AP_DATA $ALPHA $GAMMA $WINDOW

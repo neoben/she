@@ -1,0 +1,176 @@
+Simple Handoff Emulator
+=======================
+
+Author: 	Carmine Benedetto
+======
+
+Website:	http://www.carminebenedetto.net
+=======
+
+Mail:		carmine.benedetto[at]gmail.com
+====
+
+Overview: 	Handoff mechanism Emulator for Wireless Mesh Networks.
+========	No Scanning Phase planned.
+		The current AP and the next AP are a priori known.
+
+		Forecasting mechanism simulator for Wireless Mesh Networks based on the Double EWMA Smoothing Filter.
+
+	************************************************************
+
+COMPILE:
+=======
+
+make			- 	compile all
+make shs		-	compile the first section  :: EWMA Smoothing - No Forecasting - Hysteresis Handoff Algorithm
+make shs_d		- 	compile the second section :: Double EWMA Smoothing - Forecasting
+make shs_d_choose	-	compile the third section  :: Double EWMA Smoothing - Forecasting with History Window 
+
+	************************************************************
+
+RUN (BASH):
+==========
+
+./run		- 	Run the the first section :: EWMA Smoothing - No Forecasting - Hysteresis Handoff Algorithm.
+			Edit "run" to set the parameters:
+				* ID of the current AP;
+				* ID of the next AP;
+				* Path of the current AP file;
+				* Path of the next AP file;
+				* alpha - parameter of the EWMA Filter;
+				* beta - parameter of the EWMA Filter;
+				* gamma_g - hysteresis parameter;
+				* gamma_b - hysteresis parameter.
+
+./run_d		-	Run the second section :: Double EWMA Smoothing - Forecasting.
+			Edit "run_d" to set the parameters:
+				* ID of the current AP;
+				* ID of the next AP;
+				* Path of the current AP file;
+				* Path of the next AP file;
+				* alpha - parameter of the Double EWMA Filter;
+				* gamma - parameter of the Double EWMA Filter.
+
+./run_d_choose	-	Run the third section :: Double EWMA Smoothing - Forecasting with History Window.
+			Edit "run_d_choose" to set the parameters:
+				* ID of the current AP;
+				* ID of the next AP;
+				* Path of the current AP file;
+				* Path of the next AP file;
+				* alpha - parameter of the Double EWMA Filter;
+				* gamma - parameter of the Double EWMA Filter;
+				* window - parameter of the History Window.
+
+	************************************************************
+
+RUN (PYTHON):
+============
+
+python param_d.py		-	Run simulation varying the alpha and gamma values (Double EWMA Filter) in steps.
+					Edit "param_d.py" to set the parameters:
+						* ID of the current AP;
+						* ID of the next AP;
+						* Path of the current AP file;
+						* Path of the next AP file;
+						* step value;
+						* window - parameter of the History Window.
+
+python min_mse.py		-	Evaluate the min MSE and print the related alpha and gamma values (Double EWMA Filter).
+					Edit "min_mse.py" to set the parameter:
+						* step value (it should be the same of the "param_d.py" file).
+
+python var_window.py		-	Run the simulations varying the History Window.
+					Edit "var_window.py" to set the parameters:
+						* ID of the current AP;
+						* ID of the next AP;
+						* Path of the current AP file;
+						* Path of the next AP file;
+						* alpha - parameter of the Double EWMA Filter;
+						* gamma - parameter of the Double EWMA Filter;
+						* step value - variation of the History Window;
+						* max window size.
+
+python print_var_window.py	-	Create the graphs varying the History Window.
+					Edit "print_var_window.py" to set the parameters:
+						* ID of the current AP;
+						* ID of the next AP;
+						* alpha - parameter of the Double EWMA Filter;
+						* gamma - parameter of the Double EWMA Filter;
+						* step value - variation of the History Window (it should be the same of the "var_window.py" file);
+						* min window size;
+						* max window size.
+
+	************************************************************
+
+About the History Window Parameter:
+====================
+
+Using the History Window parameter you can choose how many hiscorical values have to be considered to make prediction.
+
+	************************************************************
+
+Data Structures (EWMA Smoothing - No Forecasting - Hysteresis Handoff Algorithm):
+===============
+
+	vc  : vector containing the parameters of the current AP
+			- timestap
+			- RSSI value
+
+	vn  : vector containing the parameters of the next AP
+			- timestamp
+			- RSSI value
+
+	vsc : vector containing the smoothed parameters of the current AP
+			- timestamp
+			- smoothed RSSI value
+
+	vsn : vector containing the smoothed parameters of the next AP
+			- timestamp
+			- smoothed RSSI value 
+
+	************************************************************
+
+Data Structures (Double EWMA Smoothing - Forecasting):
+===============
+
+	vc  : vector containing the parameters of the current AP
+			- timestap
+			- RSSI value
+
+	vn  : vector containing the parameters of the next AP
+			- timestamp
+			- RSSI value	
+	
+	vpdc	: vector containing the forecast parameters of the current AP
+			- timestap
+			- RSSI value
+	
+	vpdn	: vector containing the forecast parameters of the next AP
+			- timestap
+			- RSSI value
+
+	vspdc	: vector containing the forecast smoothed parameters of the current AP
+			- timestap
+			- RSSI value
+
+	vspdn	: vector containing the forecast smoothed parameters of the next AP
+			- timestap
+			- RSSI value
+
+	cfp	: vector containing the forecast output of the current AP
+			- timestamp
+			- RSSI value
+
+	nfp	: vector containing the forecast output of the next AP
+			- timestamp
+			- RSSI value
+
+	************************************************************
+
+Note:
+====
+
+See the dipendencies graph in the doc/ directory.
+
+	************************************************************
+

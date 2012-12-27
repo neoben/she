@@ -1,0 +1,50 @@
+SNR (RSSI) Evaluation
+=====================
+
+Simulation Parameters:
+	- mobilityType = "LinearMobility"
+	- mobility.speed = 10mps - 36 km/h
+	- channelControl.propagationModel = "NakagamiModel"
+
+Host Coordinates:
+	- host.mobility.initialX = 50m
+	- host.mobility.initialY = 100m
+	- host.mobility.initialZ = 0m
+
+AP0 Coordinates:
+	- ap[0].mobility.initialX = 250m
+	- ap[0].mobility.initialY = 200m
+	- ap[0].mobility.initialZ = 0m
+
+AP1 Coordinates:
+	- ap[1].mobility.initialX = 750m
+	- ap[1].mobility.initialY = 200m
+	- ap[1].mobility.initialZ = 0m
+
+Scenario:
+
+	Host  >>>>>>>>>>  Host  >>>>>>>>>>  Host
+	
+	|
+	|
+
+	200m
+
+	|
+	|
+	
+	AP0 ----------  500m ----------  AP1
+			
+
+Simulation with Hysteresis Handoff Algorithm - NO Forecasting
+=============================================================
+
+EWMA parameters:
+	- alpha: 	0.015626
+
+Hysteresis parameters:
+	- beta: 	25
+	- gamma_g: 	6
+	- gamma_b:	3
+
+

@@ -1,0 +1,18 @@
+#! /bin/sh
+
+COMMAND=./bin/shs_d
+
+# AP Parameters
+CURR_AP_ID=R2			# ID of the current AP
+NEXT_AP_ID=R3			# ID of the next AP
+CURR_AP_DATA=./data/R2.dat	# Path of the current AP file
+NEXT_AP_DATA=./data/R3.dat	# Path of the next AP file
+
+# DWEMA Parameters
+ALPHA=0.501
+GAMMA=0.072
+
+$COMMAND $CURR_AP_ID $NEXT_AP_ID $CURR_AP_DATA $NEXT_AP_DATA $ALPHA $GAMMA
+
+cp data/*.dat graph/
+

@@ -1,0 +1,7 @@
+FORECASTING ONE STEP AHED - ALPHA AND GAMMA VALUE TESTS
+
+Simulations performed forecasting one step ahed all the observed values.
+
+DWEMA used like a filter (simil to EWMA).
+
+Goal of the simulations: check the algorithm with the various alpha and gamma parameters

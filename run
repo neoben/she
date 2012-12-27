@@ -1,0 +1,22 @@
+#! /bin/sh
+
+COMMAND=./bin/shs
+
+# AP Parameters:
+CURR_AP_ID=AP0			# ID of the current AP
+NEXT_AP_ID=AP1			# ID of the next AP
+CURR_AP_DATA=./data/ap0.dat	# path of the current AP file
+NEXT_AP_DATA=./data/ap1.dat	# path of the next AP file
+
+# EWMA Filter Parameters:
+ALPHA=0.015626				
+BETA=25
+GAMMA_G=6
+GAMMA_B=3
+
+$COMMAND $CURR_AP_ID $NEXT_AP_ID $CURR_AP_DATA $NEXT_AP_DATA $ALPHA $BETA $GAMMA_G $GAMMA_B	
+
+cp data/*.dat graph/
+
+
+

@@ -1,0 +1,17 @@
+FORECASTING TESTS
+
+Double Exponential Weighted Moving Average Parameters:
+	
+	alpha = 0.89
+	gamma = 0.04
+	
+	MSE = 75.0216 (based on R2 data) -> alpha and gamma optimal values
+
+
+
+Simulations performed varying the window. 
+
+The name of the eps file indicates the used window and so the used observed values.
+Eg: r2_w4.eps -> The window size is 4.
+		 The observed used rssi values are those with the correspondig timestamp value smaller than 4.
+		
